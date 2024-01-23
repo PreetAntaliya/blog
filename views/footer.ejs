@@ -1,0 +1,18 @@
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get the current URL path
+        var path = window.location.pathname;
+
+        // Get all navigation links
+        var navLinks = document.querySelectorAll('.app-menu .nav-link');
+
+        // Find the link that matches the current URL path
+        navLinks.forEach(function (link) {
+            if (link.getAttribute('href') === path) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    });
+</script>

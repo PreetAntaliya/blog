@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body{
+  font-family: 'Rubik';
+}
+
+:root {
+    --link-text: #41c5e8;
+    --primary-color: #0b0b0f;
+    --secondnary-color: #c9c9c9;
+    --text-color: #c5c5c5;
+    --text-2: #a6a6a6;
+    --golden: #ffd76f;
+    --white-color: #ffffff;
+    --black-color: #000000;
+    --black-2: #121218;
+    --btn: #046ab3;
+    --font: "Inter";
+    --font-arima: "Arima";
+    --font-rubik: "Rubik";
+    --f-16: 16px;
+    --f-16-30-500: 500 16px/30px var(--font-arima);
+    --f-16-14-400: 400 16px/14.5px var(--font);
+    --f-18-30-500: 500 18px/30px var(--font);
+    --f-18-44-600: 600 18px/44px var(--font);
+    --f-20-33-400: 400 20px/33px var(--font-rubik);
+    --f-25-56-400: 400 25px/56px var(--font-rubik);
+    --f-25-45-400: 400 23px/40px var(--font-rubik);
+    --f-26-365-800: 800 26px/36.5px var(--font);
+    --f-45-55-800: 800 44px/55px var(--font-arima);
+    --f-50-60-400: 400 50px/60px var(--font-arima);
+    --f-60-80-800: 800 60px/78px var(--font-arima);
+    --f-65-80-800: 800 65px/80px var(--font-arima);
+  }
+
+
+  .text-color{
+    color: var(--text-color);
+  }
+
+.f-16-30-500{
+    font: var(--f-16-30-500);
+}
+
+.f-18-30-500 {
+    font: var(--f-18-30-500);
+  }
+  
+  .f-18-44-600 {
+    font: var(--f-18-44-600);
+  }
+  
+  .f-20-33-400 {
+    font: var(--f-20-33-400);
+  }
+  
+  .f-25-45-400 {
+    font: var(--f-25-45-400);
+  }
+  
+  .f-25-56-400 {
+    font: var(--f-25-56-400);
+  }
+  
+  .f-26-365-800 {
+    font: var(--f-26-365-800);
+  }
+  
+  .f-45-55-800 {
+    font: var(--f-45-55-800);
+  }
+  
+  .f-50-60-400 {
+    font: var(--f-50-60-400);
+  }
+  
+  .f-60-80-800 {
+    font: var(--f-60-80-800);
+  }
+
+  .thumb_img{
+    position: relative;
+    width: 251px;
+    height: 251px; 
+    background-size: cover; 
+    background-position: center;
+  }
+
+  .blog_main{
+    background-color: white;
+    padding: 12px;
+  }
+  
+  .thumb_img::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #198754;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: all 0.3s ease-in;
+  }
+  
+.blog_main:hover .thumb_img::after{
+  opacity: 0.4;
+}
+
+/* add blog */
+.heade_margin{
+  margin-left: 150px;
+}
+.sec_bg input,.sec_bg textarea{
+  padding: 6px 12px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+}
+.sec_bg{
+  padding: 35px;
+  margin-top: 50px;
+  max-width: 720px;
+  background-color: lightgoldenrodyellow;
+  width: 90%;
+  border-radius: 12px;
+}
+
+.add_data{
+  width: 100%;
+}
+
+/* admin view */
+.view_margin{
+  margin-left: 260px;
+}
+
+.view_margin  tbody td{
+  padding: 7px 0;
+}
+
+/* detail page */
+
+.thumb_img_detail::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #198754;
+  opacity: 0.2;
+}
+
+.blog_title_more{
+  backdrop-filter: blur(10px);
+  min-width: 100px;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 40%;
+  bottom: 30px;
+  border-radius: 0 50px 50px 0;
+  text-transform: capitalize;
+  color: #ffd76f;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 99;
+}
+
+.decription_blog{
+  font-size: 20px;
+  line-height: 1.9;
+}

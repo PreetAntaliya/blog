@@ -1,0 +1,64 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> -->
+<%- include('header') %>
+
+    <section style="margin-left: 260px;">
+        <div style="margin: 18px; padding: 18px; background-color: white;">
+            <div class="row">
+                <div class="position-relative">
+                    <div class="blog_title_more position-absolute">
+                        <h1 class="mb-0"><%= blog.title %></h1>
+                        <span class="me-3"><i class="me-1 fa-solid fa-user"></i><%= blog.author %></span>
+                        <span><i class="me-1 fa-solid fa-clock"></i><%= blog.date %></span>
+                    </div>
+                    <img class="thumb_img_detail position-relative" src="<%= blog.thumb_img %>" alt="" style="width: 100%;height: 500px;object-fit: cover; object-position: bottom;">
+                </div>
+                <div class="my-5">
+                    <div class="d-flex align-items-center my-3">
+                        <div class="col-6">
+                            <p class="decription_blog">
+                                <%= blog.description %>
+                            </p>
+                        </div>
+                        <div class="col-6">
+                            <img src="<%= blog.extra_img[0] %>" alt="" style="width: 100%;height: 300px;object-fit: cover; object-position: center; padding: 10px; ">
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center my-3">
+                        <div class="col-6">
+                            <img src="<%= blog.extra_img[1] %>" alt="" style="width: 100%;height: 300px;object-fit: cover; object-position: center; padding: 10px; ">
+                        </div>
+                        <div class="col-6">
+                            <p class="decription_blog">
+                                <%= blog.description %>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center my-3">
+                        <div class="col-6">
+                            <p class="decription_blog">
+                                <%= blog.description %>
+                            </p>
+                        </div>
+                        <div class="col-6">
+                            <img src="<%= blog.extra_img[2] %>" alt="" style="width: 100%;height: 300px;object-fit: cover; object-position: center; padding: 10px; ">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <a href="/" class="btn btn-success w-25 mx-auto">Back To Blog Page</a>
+            </div>
+        </div>
+    </section>
+
+    <%- include('footer') %>
+    </body>
+
+    </html>
