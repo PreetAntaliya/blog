@@ -1,0 +1,86 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body> -->
+    <%- include('header') %>
+
+    <div class="add_data heade_margin">
+      <center>
+        <div class="sec_bg">
+          <form action="/updateBlog" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="editId" value="<%= single.id %>">
+            
+            <div class="d-flex align-items-center mt-3">
+              <label class="col-2" for="title">Title </label>
+              <input class="col-10" type="text" id="title" name="title" value="<%= single.title %>">
+            </div>
+            
+            <div class="d-flex flex-wrap align-items-center mt-3">
+              <label class="col-2" for="thumb_img">Thumb Image </label>
+              <input class="col-10" type="file" id="thumb_img" name="thumb_img">
+              <img src="<%= single.thumb_img %>" alt="<%= single.title %>" width="50" height="100" class="col-3 mx-auto mt-3">
+            </div>
+            
+            <div class="d-flex align-items-center mt-3">
+              <label class="col-2">Description :</label>
+              <textarea class="col-10" name="description" id="description" cols="30" rows="10">
+                <%= single.description %>
+              </textarea>
+            </div>
+            
+            <div class="d-flex align-items-center mt-3">
+              <label class="col-2" for="author">Author </label>
+              <input class="col-10" type="text" id="author" name="author" value="<%= single.author %>">
+            </div>
+            
+            <div class="d-flex align-items-center mt-3">
+              <label class="col-2" for="date">Date </label>
+              <input class="col-10" type="text" id="date" name="date" value="<%= single.date %>" readonly>
+            </div>
+            
+            <div class="d-flex flex-wrap align-items-center mt-3">
+              <label class="col-2" for="extra_img">Extra img </label>
+              <input class="col-10" type="file" id="extra_img" name="extra_img" multiple>
+              <% single.extra_img.map((val) => { %>
+                <img src="<%= val %>" alt="" width="50" height="100" class="col-3 mx-auto mt-3">
+              <% }) %>
+            </div>
+            
+            <div>
+              <input class="btn btn-success col-12 mt-4" type="submit" value="Submit">
+            </div>
+          </form>
+        </div>
+      </center>
+    </div>
+    
+    <%- include('footer') %>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <!-- <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get the current date
+            let now = new Date();
+
+            // Format the date to be in the required format (e.g., "March 17, 2018")
+            let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            let formattedDate = months[now.getMonth()] + ' ' + now.getDate() + ', ' + now.getFullYear();
+
+            // Set the default value of the input
+            document.getElementById("date").value = formattedDate;
+        });
+    </script> -->
+
+    
+    
+</body>
+
+</html>

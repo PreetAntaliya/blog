@@ -67,31 +67,64 @@ const deleteBlog = async (req, res) => {
   }
 };
 
-const editData = async(req,res) => {
-  try{
-      let id =  req.query.id;
-      let single = await blogModel.findById(id);
-      return res.render('edit',{single});
-  }catch(err){
-      console.log(err);
-      return false;
+const editData = async (req, res) => {
+  try {
+    let id = req.query.id;
+    let single = await blogModel.findById(id);
+    return res.render("edit", { single });
+  } catch (err) {
+    console.log(err);
+    return false;
   }
-}
+};
 
-const updateData = async(req,res) => {
-  try{
-      
-  }catch(err){
-      console.log(err);
-      return false;
+const updateData = async (req, res) => {
+  try {
+    const { title, description, date, author } = req.body;
+    const id = req.body.editId;
+
+    // Check if thumb_img file exists
+    if (req.files && req.files['thumb_img'] && req.files['thumb_img'].length > 0) {
+      const oldData = await blogModel.findById(id);
+
+      // Delete old thumb_img file
+      fs.unlinkSync(oldData.thumb_img);
+
+      const updatedBlog = await blogModel.findByIdAndUpdate(id, {
+        title,
+        thumb_img: req.files['thumb_img'][0].path,
+        description,
+        date,
+        author,
+      });
+
+      if (updatedBlog) {
+        console.log("Blog record updated with new thumb_img");
+        return res.redirect("/");
+      }
+    } else {
+      // Handle the case when no new thumb_img is uploaded
+      const updatedBlog = await blogModel.findByIdAndUpdate(id, {
+        title,
+        description,
+        date,
+        author,
+      });
+
+      if (updatedBlog) {
+        console.log("Blog record updated without changing thumb_img");
+        return res.redirect("/");
+      }
+    }
+  } catch (err) {
+    console.error(err);
+    return res.status(500).send("Internal Server Error");
   }
-}
-
+};
 
 
 const blogData = async (req, res) => {
   try {
-
     const blogId = req.query.id;
     const blog = await blogModel.findById(blogId);
 

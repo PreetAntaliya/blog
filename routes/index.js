@@ -29,6 +29,8 @@ routes.post('/addBlog', imgUpload,blogController.addBlog)
 routes.get('/adminView', blogController.adminView)
 routes.get('/deleteBlog', blogController.deleteBlog)
 routes.get('/mainBlog', blogController.blogData)
+routes.get('/editBlog', blogController.editData)
+routes.post('/updateBlog', blogController.updateData)
 
 
 module.exports = routes
