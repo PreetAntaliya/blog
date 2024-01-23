@@ -70,7 +70,7 @@ const deleteBlog = async (req, res) => {
 const editData = async(req,res) => {
   try{
       let id =  req.query.id;
-      let single = await UserModel.findById(id);
+      let single = await blogModel.findById(id);
       return res.render('edit',{single});
   }catch(err){
       console.log(err);
@@ -80,30 +80,7 @@ const editData = async(req,res) => {
 
 const updateData = async(req,res) => {
   try{
-      if(req.file){
-          let old = await UserModel.findById(req.body.id);
-          fs.unlinkSync(old.image);
-          let up = await UserModel.findByIdAndUpdate(req.body.id,{
-              name : req.body.name,
-              phone : req.body.phone,
-              image : req.file.path
-          });
-          if(up){
-              console.log("record update");
-              return res.redirect('/');
-          }
-      }else{
-          let old = await UserModel.findById(req.body.id);
-          let up = await UserModel.findByIdAndUpdate(req.body.id,{
-              name : req.body.name,
-              phone : req.body.phone,
-              image : old.image
-          });
-          if(up){
-              console.log("record update");
-              return res.redirect('/');
-          }
-      }
+      
   }catch(err){
       console.log(err);
       return false;
